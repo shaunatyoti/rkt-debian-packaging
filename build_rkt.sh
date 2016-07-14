@@ -1,6 +1,6 @@
 # build rkt debian package
 
-RKT_VERSION=${RKT_VERSION:-1.9.1}
+RKT_VERSION=${RKT_VERSION:-1.10.1}
 REV=${REV:-1}
 
 rm -f rkt/builds/rkt_$RKT_VERSION_amd64.deb
