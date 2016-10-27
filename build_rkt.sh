@@ -15,7 +15,7 @@ cd rkt/downloads/v$RKT_VERSION
 if [ -f rkt-v${RKT_VERSION}-1_amd64.deb ]; then
   echo "already have the download ..."
 else
-  wget https://github.com/coreos/rkt/releases/download/v$RKT_VERSION/rkt-v$RKT_VERSION-1_amd64.deb
+  wget https://github.com/coreos/rkt/releases/download/v$RKT_VERSION/rkt_$RKT_VERSION-1_amd64.deb
 fi
 
 #cd ../../source
