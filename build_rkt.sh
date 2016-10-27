@@ -1,6 +1,6 @@
 # build rkt debian package
 
-RKT_VERSION=${RKT_VERSION:-1.17.0}
+RKT_VERSION=${RKT_VERSION:-1.18.0}
 REV=${REV:-1}
 
 rm -f rkt/builds/rkt_$RKT_VERSION_amd64.deb
@@ -12,26 +12,26 @@ mkdir -p rkt/downloads/v$RKT_VERSION
 
 cd rkt/downloads/v$RKT_VERSION
 
-if [ -f rkt-v${RKT_VERSION}.tar.gz ]; then
+if [ -f rkt-v${RKT_VERSION}-1_amd64.deb ]; then
   echo "already have the download ..."
 else
-  wget https://github.com/coreos/rkt/releases/download/v$RKT_VERSION/rkt-v$RKT_VERSION.tar.gz
+  wget https://github.com/coreos/rkt/releases/download/v$RKT_VERSION/rkt-v$RKT_VERSION-1_amd64.deb
 fi
 
-cd ../../source
-tar zxf ../downloads/v$RKT_VERSION/rkt-v$RKT_VERSION.tar.gz
-
-fpm -s dir -n "rkt" \
--p ../builds \
--C ./rkt-v${RKT_VERSION} \
--v ${RKT_VERSION}-${REV} \
--t deb \
--a amd64 \
--d "dpkg (>= 1.17)" \
---license "Apache Software License 2.0" \
---maintainer "yoti <noc@yoti.com>" \
---vendor "yoti ltd" \
---description "rkt binary and stage1 acis" \
-rkt=/usr/bin/rkt \
-stage1-coreos.aci=/usr/share/rkt/aci/stage1-coreos.aci \
-stage1-kvm.aci=/usr/share/rkt/aci/stage1-kvm.aci
+#cd ../../source
+#tar zxf ../downloads/v$RKT_VERSION/rkt-v$RKT_VERSION.tar.gz
+#
+#fpm -s dir -n "rkt" \
+#-p ../builds \
+#-C ./rkt-v${RKT_VERSION} \
+#-v ${RKT_VERSION}-${REV} \
+#-t deb \
+#-a amd64 \
+#-d "dpkg (>= 1.17)" \
+#--license "Apache Software License 2.0" \
+#--maintainer "yoti <noc@yoti.com>" \
+#--vendor "yoti ltd" \
+#--description "rkt binary and stage1 acis" \
+#rkt=/usr/bin/rkt \
+#stage1-coreos.aci=/usr/share/rkt/aci/stage1-coreos.aci \
+#stage1-kvm.aci=/usr/share/rkt/aci/stage1-kvm.aci
